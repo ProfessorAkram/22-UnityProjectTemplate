@@ -157,8 +157,10 @@ public class GameManager : MonoBehaviour
             audioSource.loop = true;
             audioSource.Play();
         }//end if (backgroundMusicSource != null)
-
-
+        
+        //if we run play the game from the level instead of start scene
+        if (currentSceneName != startScene) { SetDefaultGameStats(); }
+        
     }//end Start()
 
 
