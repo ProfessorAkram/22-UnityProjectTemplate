@@ -132,6 +132,13 @@ public class GameManager : MonoBehaviour
 
     }//end Awake()
 
+    //Start is called once before the update
+    void Start()
+    {
+        //if we run play the game from the level instead of start scene
+        if (currentSceneName != startScene) { SetDefaultGameStats(); }
+
+    }//end Start()
 
     // Update is called once per frame
     private void Update()
