@@ -16,7 +16,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement; //libraries for accessing scenes
 
 //Setting the enum outside the class allows for direct access by the enum (classes) name directly in other classes.
-public enum GameState { Title, Playing, BeatLevel, LostLevel, GameOver, Idle };
+public enum GameState { Title, Playing, BeatLevel, LostLevel, GameOver, Idle , Testing };
 //enum of game states (work like it's own class)
 
 public class GameManager : MonoBehaviour
@@ -136,10 +136,10 @@ public class GameManager : MonoBehaviour
     //Start is called once before the update
     void Start()
     {
-        //if we run play the game from the level instead of start scene
-        if (currentSceneName != startScene) { SetDefaultGameStats(); }
+        //if we run play the game from the level instead of start scene (PLAYTESTING ONLY)
+        if (currentSceneName != startScene) { SetGameState(GameState.Testing); }//set the game state for testing }
 
-    }//end Start()
+        }//end Start()
 
 
     // Update is called once per frame
@@ -199,6 +199,12 @@ public class GameManager : MonoBehaviour
             case GameState.Idle:
                 //do nothing
                 break;
+
+            case GameState Testing:
+                currentLives = defaultsLives; //set current lives to default (inital) value
+                SetDefaultGameStats(); //Run the default game stats to playtest
+                break;
+
         }//end switch(gameStates)
     }//end CheckGameState()
 
