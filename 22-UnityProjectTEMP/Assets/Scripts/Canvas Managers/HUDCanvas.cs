@@ -12,6 +12,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+
 
 public class HUDCanvas : MonoBehaviour
 {
@@ -19,12 +21,17 @@ public class HUDCanvas : MonoBehaviour
 
     GameManager gm; //reference to game manager
 
-    [Header("Canvas SETTINGS")]
-    public Text levelTextbox; //textbox for level count
-    public Text livesTextbox; //textbox for the lives
-    public Text scoreTextbox; //textbox for the score
-    public Text highScoreTextbox; //textbox for highscore
-    
+    [Header("Stats Placement")]
+    public TMP_Text levelCountTextbox; //textbox for level count
+    public TMP_Text livesTextbox; //textbox for the lives
+    public TMP_Text healthTextbox; //textbox for highscore
+    public TMP_Text scoreTextbox; //textbox for the score
+    public TMP_Text highScoreTextbox; //textbox for highscore
+    public TMP_Text collectableCountTextbox; //textbox for amount of collectables
+    public TMP_Text TimerTextbox; //textbox for Timer display
+    public TMP_Text fastestTimeTextbox; //textbox for the Fastest Time
+ 
+
     //GM Data
     private int level;
     private int totalLevels;
@@ -34,6 +41,7 @@ public class HUDCanvas : MonoBehaviour
 
     private void Start()
     {
+
         gm = GameManager.GM; //find the game manager
 
         //reference to levle info
@@ -62,10 +70,10 @@ public class HUDCanvas : MonoBehaviour
     void SetHUD()
     {
         //if texbox exsists update value
-        if (levelTextbox) { levelTextbox.text = "Level " + level + "/" + totalLevels; }
-        if (livesTextbox) { livesTextbox.text = "Lives " + lives; }
-        if (scoreTextbox) { scoreTextbox.text = "Score " + score; }
-        if (highScoreTextbox) { highScoreTextbox.text = "High Score " + highscore; }
+       // if (levelTextbox) { levelTextbox.text = "Level " + level + "/" + totalLevels; }
+        //if (livesTextbox) { livesTextbox.text = "Lives " + lives; }
+        //if (scoreTextbox) { scoreTextbox.text = "Score " + score; }
+        //if (highScoreTextbox) { highScoreTextbox.text = "High Score " + highscore; }
 
     }//end SetHUD()
 
