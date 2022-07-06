@@ -15,7 +15,7 @@ using UnityEngine.UI;
 using TMPro;
 
 
-public class HUDCanvas : MonoBehaviour
+public class HUDScript : MonoBehaviour
 {
     /*** VARIABLES ***/
 
@@ -30,7 +30,7 @@ public class HUDCanvas : MonoBehaviour
     public TMP_Text collectableCountTextbox; //textbox for amount of collectables
     public TMP_Text TimerTextbox; //textbox for Timer display
     public TMP_Text fastestTimeTextbox; //textbox for the Fastest Time
- 
+
 
     //GM Data
     private int level;
@@ -38,22 +38,22 @@ public class HUDCanvas : MonoBehaviour
     private int lives;
     private int score;
     private int highscore;
+    private string timer;
+    private string collection;
 
-    private void Start()
+   private void Start()
     {
-
         gm = GameManager.GM; //find the game manager
 
         //reference to levle info
         level = gm.gameLevelsCount;
         totalLevels = gm.gameLevels.Length;
 
+        SetHUD(); //set up the hud
 
-
-        SetHUD();
     }//end Start
 
-    // Update is called once per frame
+ // Update is called once per frame
     void Update()
     {
         GetGameStats();
@@ -65,15 +65,20 @@ public class HUDCanvas : MonoBehaviour
         lives = gm.Lives;
         score = gm.Score;
         highscore = gm.HighScore;
+        timer = gm.Timer;
+        collection = gm.Collection;
     }
 
     void SetHUD()
     {
         //if texbox exsists update value
-       // if (levelTextbox) { levelTextbox.text = "Level " + level + "/" + totalLevels; }
-        //if (livesTextbox) { livesTextbox.text = "Lives " + lives; }
-        //if (scoreTextbox) { scoreTextbox.text = "Score " + score; }
-        //if (highScoreTextbox) { highScoreTextbox.text = "High Score " + highscore; }
+        if (levelCountTextbox) { levelCountTextbox.text = "Level " + level + "/" + totalLevels; }
+        if (livesTextbox) { livesTextbox.text = "Lives " + lives; }
+        if (scoreTextbox) { scoreTextbox.text = "Score " + score; }
+        if (highScoreTextbox) { highScoreTextbox.text = "High Score " + highscore; }
+        if (TimerTextbox) { TimerTextbox.text = "Time: " + timer; }
+        if (collectableCountTextbox) { collectableCountTextbox.text = "Collected: " + collection; }
+
 
     }//end SetHUD()
 

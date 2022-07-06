@@ -17,7 +17,7 @@ public class TestGame : MonoBehaviour
     public int point = 100; 
 
     // Update is called once per frame
-    void Update()
+ /*   void Update()
     {
         //add points
         if (Input.GetKeyUp("return")) {
@@ -31,4 +31,6 @@ public class TestGame : MonoBehaviour
         }
 
     }//end Update()
+*/
+
 }
